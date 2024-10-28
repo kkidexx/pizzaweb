@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Producto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 th:text="${producto?.id == null ? 'Agregar Producto' : 'Editar Producto'}"></h1>
+    <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
+
+        <!-- Campo para ingresar ID manualmente -->
+        <div class="form-group">
+            <label>ID</label>
+            <input type="number" class="form-control" th:field="*{id}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" class="form-control" th:field="*{nombre}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Precio</label>
+            <input type="number" class="form-control" th:field="*{precio}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Cantidad</label>
+            <input type="number" class="form-control" th:field="*{cantidad}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Categoría</label>
+            <select class="form-control" th:field="*{categoria.id}">
+                <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}">Selecciona una categoría</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a th:href="@{/productos}" class="btn btn-secondary">Cancelar</a>
+        <a th:href="@{/}" class="btn btn-info">Regresar al Inicio</a> <!-- Botón de regreso al inicio -->
+    </form>
+</div>
+</body>
+</html>

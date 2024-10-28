@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzería Vesuvio</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+  <h1>Bienvenido a Pizzería Vesuvio</h1>
+  <div class="mt-4">
+    <a class="btn btn-primary" th:href="@{/productos}">Gestionar Productos</a>
+    <a class="btn btn-secondary" th:href="@{/categorias}">Gestionar Categorías</a>
+  </div>
+</div>
+</body>
+</html>
